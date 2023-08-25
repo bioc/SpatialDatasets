@@ -1,0 +1,40 @@
+Package: spatialDatasets
+Version: 0.0.1
+Title: Collection of spatial omics datasets
+Description: This is a collection of publically available spatial omics datasets.
+  Where possible we have curated these datasets as either SpatialExperiments, 
+  MoleculeExperiments or CytoImageLists and included annotations of the sample
+  characteristics. 
+Authors@R: c(person("Farhan", "Ameen", email = "fame2827@uni.sydney.edu.au",
+    role = c("aut", "cre")),
+    person("Nick", "Robertson", email = "nick.robertson@sydney.edu.au",
+    role = c("aut")),
+    person("Alex", "Qin", email = "alex.qin@sydney.edu.au",
+    role = c("aut")),
+    person("Shila", "Ghazanfar", email = "shila.ghazanfar@sydney.edu.au",
+    role = c("aut")),
+    person("Ellis", "Patrick", email = "ellis.patrick@sydney.edu.au",
+    role = c("aut")))
+URL: https://github.com/SydneyBioX/SpatialDatasets
+BugReports: https://github.com/SydneyBioX/SpatialDatasets/issues
+License: MIT + file LICENSE
+biocViews:
+    ExperimentData, 
+    ExperimentHub, 
+    ReproducibleResearch, 
+    SingleCellData, 
+    SpatialData, 
+    Homo_sapiens_Data, 
+    Mus_musculus_Data
+Depends: 
+    ExperimentHub, 
+    SpatialExperiment,
+    MoleculeExperiment
+Imports:
+    utils
+VignetteBuilder: knitr
+Suggests:
+    BiocStyle, 
+    knitr, 
+    rmarkdown
+RoxygenNote: 7.1.2
