@@ -1,0 +1,105 @@
+---
+title: "The SpatialDatasets package"
+author:
+- name: Shila Ghazanfar
+  affiliation:  
+  - Sydney Precision Data Science Centre, University of Sydney, Australia; 
+  - School of Mathematics and Statistics, University of Sydney, Australia; 
+  - Charles Perkins Centre, University of Sydney, Australia
+- name: Nicholas Robertson
+  affiliation:
+  - Sydney Precision Data Science Centre, University of Sydney, Australia; 
+  - School of Mathematics and Statistics, University of Sydney, Australia
+- name: Farhan Ameen
+  affiliation:
+  - Sydney Precision Data Science Centre, University of Sydney, Australia; 
+  - School of Mathematics and Statistics, University of Sydney, Australia
+- name: Alex Qin
+  affiliation:
+  - Sydney Precision Data Science Centre, University of Sydney, Australia; 
+  - School of Mathematics and Statistics, University of Sydney, Australia;
+  - Westmead Institute for Medical Research, University of Sydney, Australia
+- name: Ellis Patrick
+  affiliation:
+  - Sydney Precision Data Science Centre, University of Sydney, Australia; 
+  - School of Mathematics and Statistics, University of Sydney, Australia;
+  - Westmead Institute for Medical Research, University of Sydney, Australia
+package: STexampleData
+output: 
+  BiocStyle::html_document
+vignette: >
+  %\VignetteIndexEntry{The SpatialDataset package}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+# Introduction
+
+The `SpatialData` package contains a collection of spatially-resolved omics datasets, which have been formatted into the [SpatialExperiment](https://bioconductor.org/packages/SpatialExperiment), [MoleculeExperiment](https://bioconductor.org/packages/MoleculeExperiment) or [CytoImageList](https://bioconductor.org/packages/cytomapper) Bioconductor classes, for use in examples, demonstrations, and tutorials. The datasets are from several different platforms including IMC, MIBI-TOF, Xenium, CosMx and MERFISH. They have been sourced from various publicly available sources. 
+
+
+# Installation
+
+To install the `SpatialDatasets` package from GitHub:
+
+```{r, eval=FALSE}
+install.packages("remotes")
+remotes::install_github("SydneyBioX/SpatialDatasets", build_vignettes = TRUE)
+```
+
+
+# Datasets
+
+The package contains the following datasets:
+
+- `spe_Keren_2018`: A study on triple negative breast cancer 
+containing XXX samples measured using MIBI-TOF published by [Keren et al. (2018)](https://doi.org/10.1016/j.cell.2018.08.039). 
+
+# Load data
+
+The following examples show how to load the example datasets as `SpatialExperiment` objects in an R session.
+
+There are two options for loading the datasets: either using named accessor functions or by querying the ExperimentHub database.
+
+
+## Load using named accessors
+
+```{r, message=FALSE}
+library(SpatialExperiment)
+library(SpatialDatasets)
+```
+
+
+### Keren et al. (2018)
+
+A study on triple negative breast cancer 
+containing XXX samples measured using MIBI-TOF published by [Keren et al. (2018)](https://doi.org/10.1016/j.cell.2018.08.039). 
+
+```{r, message=FALSE}
+# load object
+spe <- spe_Keren_2018()
+
+# check object
+spe
+```
+
+
+
+# Generating objects from raw data files
+
+For reference, we include code scripts to generate the `SpatialExperiment`, `MoleculeExperiment` or `CytoImageList` objects from the raw data files.
+
+These scripts are saved in `/inst/scripts/` in the source code of the `SpatialData` package. The scripts include references and links to the data files from the original sources for each dataset.
+
+
+# Session information
+
+```{r}
+sessionInfo()
+```
+
