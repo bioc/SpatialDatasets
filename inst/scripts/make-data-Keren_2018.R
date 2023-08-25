@@ -6,7 +6,7 @@
 # For more details on this dataset see:
 # Keren et al. (2018): https://doi.org/10.1016/j.cell.2018.08.039
 
-# The raw data was downloaded from the Angela Lab website:
+# The raw data was downloaded from the Angelo Lab website:
 # https://www.angelolab.com/mibi-data
 # And the supplementary data on the manuscript:
 # https://www.cell.com/cms/10.1016/j.cell.2018.08.039/attachment/fde24f46-1466-4a73-b1c4-83672f7cf347/mmc2.xlsx
@@ -126,7 +126,7 @@ rownames(columnData) = seq_len(nrow(columnData))
 
 
 
-# Incorporating patient cahracteristics
+# Incorporating patient characteristics
 columnData = columnData |> 
   left_join(patientChar, by = c("imageID" = "InternalId"))
 
