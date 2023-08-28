@@ -74,12 +74,6 @@ spatialData = tiffdfs |>
   arrange(imageID, CellID)
 
 
-tumour <- c("Keratin_Tumour", "Tumour")
-bcells <- c("B_cell")
-tcells <- c("dn_T_cell", "CD4_T_cell", "CD8_T_cell", "Tregs")
-myeloid <- c("Dc_or_Mono", "DC", "Mono_or_Neu", "Macrophages", "Other_Immune", "Neutrophils")
-
-
 # Labelling cell types
 spatialData = spatialData %>%
   mutate(
