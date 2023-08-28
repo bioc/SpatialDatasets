@@ -71,6 +71,11 @@ spatialData = tiffdfs |>
   arrange(imageID, CellID)
 
 
+tumour <- c("Keratin_Tumour", "Tumour")
+bcells <- c("B_cell")
+tcells <- c("dn_T_cell", "CD4_T_cell", "CD8_T_cell", "Tregs")
+myeloid <- c("Dc_or_Mono", "DC", "Mono_or_Neu", "Macrophages", "Other_Immune", "Neutrophils")
+
 
 # Labelling cell types
 spatialData = spatialData %>%
@@ -78,21 +83,21 @@ spatialData = spatialData %>%
     cellType = case_when(
       Group == 1 ~ "Unidentified",
       immuneGroup == 1 ~ "Tregs",
-      immuneGroup == 2 ~ "CD4",
-      immuneGroup == 3 ~ "CD8",
-      immuneGroup == 4 ~ "CD3",
+      immuneGroup == 2 ~ "CD4_T_cell",
+      immuneGroup == 3 ~ "CD8_T_cell",
+      immuneGroup == 4 ~ "dn_T_CD3",
       immuneGroup == 5 ~ "NK",
-      immuneGroup == 6 ~ "B",
+      immuneGroup == 6 ~ "B_cell",
       immuneGroup == 7 ~ "Neutrophils",
       immuneGroup == 8 ~ "Macrophages",
       immuneGroup == 9 ~ "DC",
-      immuneGroup == 10 ~ "Dc/Mono",
-      immuneGroup == 11 ~ "Mono/Neu",
-      immuneGroup == 12 ~ "other immune",
+      immuneGroup == 10 ~ "DC_or_Mono",
+      immuneGroup == 11 ~ "Mono_or_Neu",
+      immuneGroup == 12 ~ "Other_Immune",
       Group == 3 ~ "Endothelial",
       Group == 4 ~ "Mesenchymal",
       Group == 5 ~ "Tumour",
-      Group == 6 ~ "Keratin+Tumour"
+      Group == 6 ~ "Keratin_Tumour"
     )
   )
 
@@ -141,9 +146,8 @@ markerData = spatialData |>
 colnames(markerData) = seq_len(ncol(markerData))
 
 
-
 # SingleCellExperiment
-spe_Keren_2018 = SingleCellExperiment(
+spe_Keren_2018 = SpatialExperiment(
   list(intensities = markerData),
   colData = columnData
 )
