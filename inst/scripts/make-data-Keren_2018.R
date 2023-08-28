@@ -16,6 +16,9 @@
 library(SpatialExperiment)
 library(EBImage)
 library(dplyr)
+library(readr)
+library(BiocParallel)
+library(tibble)
 
 
 ######
@@ -24,9 +27,9 @@ library(dplyr)
 
 patientData = read.csv("patient_class.csv", header = FALSE)
 markerInfo = read.csv("cellData.csv")
-patientChar = readxl::read_xlsx("mmc2.xlsx")
+patientChar = readxl::read_xlsx("1-s2.0-S0092867418311000-mmc2.xlsx", skip = 1)
 
-tiffs = list.files("images", full.names = TRUE) 
+tiffs = list.files(".", "tiff", full.names = TRUE) 
 tiffnames = basename(tiffs) %>% parse_number()
 
 raw_images = bplapply(tiffs, EBImage::readImage,
@@ -105,8 +108,8 @@ patientData$V2 %>%
   table() 
 
 patientData = patientData %>% 
-  rename(V1 = "patient",
-         V2 = "tumour_type") %>%
+  rename("patient" = V1,
+         "tumour_type" = V2) %>%
   mutate(tumour_type = case_when(tumour_type == 0 ~ "mixed",
                                  tumour_type == 1 ~ "compartmentalised",
                                  tumour_type == 2 ~ "cold") %>% 
@@ -128,6 +131,7 @@ rownames(columnData) = seq_len(nrow(columnData))
 
 # Incorporating patient cahracteristics
 columnData = columnData |> 
+  mutate(imageID = as.character(imageID)) |>
   left_join(patientChar, by = c("imageID" = "InternalId"))
 
 
@@ -143,9 +147,10 @@ colnames(markerData) = seq_len(ncol(markerData))
 
 
 # SingleCellExperiment
-spe_Keren_2018 = SingleCellExperiment(
+spe_Keren_2018 = SpatialExperiment(
   list(intensities = markerData),
-  colData = columnData
+  colData = columnData,
+  spatialCoordsNames = c("x", "y")
 )
 
 
