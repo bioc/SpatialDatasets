@@ -25,7 +25,7 @@ df_spe_Keren_2018 <- cbind(
   SourceUrl = "https://www.angelolab.com/mibi-data", 
   Species = "Homo sapiens", 
   TaxonomyId = "9606", 
-  RDataPath = "SpatialData/3_17/spe_Keren_2018.rds", 
+  RDataPath = "SpatialDatasets/spe_Keren_2018.rds", 
   RDataClass = "SpatialExperiment", 
   SourceType = "TIFF", 
   stringsAsFactors = FALSE
