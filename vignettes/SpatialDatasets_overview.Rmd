@@ -58,7 +58,7 @@ remotes::install_github("SydneyBioX/SpatialDatasets", build_vignettes = TRUE)
 The package contains the following datasets:
 
 - `spe_Keren_2018`: A study on triple negative breast cancer 
-containing XXX samples measured using MIBI-TOF published by [Keren et al. (2018)](https://doi.org/10.1016/j.cell.2018.08.039). 
+containing 40 samples measured using MIBI-TOF published by [Keren et al. (2018)](https://doi.org/10.1016/j.cell.2018.08.039). 
 
 # Load data
 

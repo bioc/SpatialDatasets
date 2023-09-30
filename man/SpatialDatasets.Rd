@@ -28,6 +28,9 @@ The \code{SpatialDatasets} package contains the following datasets:
 containing 40 samples measured using MIBI-TOF published by [Keren et al. (2018)](https://doi.org/10.1016/j.cell.2018.08.039). 
 }
 }
+\value{
+The datasets will be a SpatialExperiment or MoleculeExperiment.
+}
 \examples{
 # load using dataset name
 spe <- spe_Keren_2018()
