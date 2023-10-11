@@ -52,6 +52,12 @@ install.packages("remotes")
 remotes::install_github("SydneyBioX/SpatialDatasets", build_vignettes = TRUE)
 ```
 
+To install the `SpatialDatasets` package from Bioconductor:
+
+```{r}
+BiocManager::install("SpatialDatasets")
+```
+
 
 # Datasets
 
@@ -80,7 +86,7 @@ library(SpatialDatasets)
 A study on triple negative breast cancer 
 containing 40 samples measured using MIBI-TOF published by [Keren et al. (2018)](https://doi.org/10.1016/j.cell.2018.08.039). 
 
-```{r, message=FALSE, eval = FALSE}
+```{r, message=FALSE}
 # load object
 spe <- spe_Keren_2018()
 
