@@ -55,6 +55,9 @@ remotes::install_github("SydneyBioX/SpatialDatasets", build_vignettes = TRUE)
 To install the `SpatialDatasets` package from Bioconductor:
 
 ```{r}
+if (!requireNamespace("BiocManager", quietly = TRUE)) {
+    install.packages("BiocManager")
+}
 BiocManager::install("SpatialDatasets")
 ```
 
