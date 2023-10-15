@@ -1,5 +1,5 @@
 Package: SpatialDatasets
-Version: 0.99.3
+Version: 0.99.4
 Title: Collection of spatial omics datasets
 Description: This is a collection of publically available spatial omics datasets.
   Where possible we have curated these datasets as either SpatialExperiments, 
@@ -30,7 +30,6 @@ biocViews:
 Depends: 
     ExperimentHub, 
     SpatialExperiment,
-    MoleculeExperiment
 Imports:
     utils
 VignetteBuilder: knitr
