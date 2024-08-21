@@ -44,7 +44,7 @@ df_Ferguson_Images <- cbind(
   Species = "Homo sapiens", 
   TaxonomyId = "9606", 
   RDataPath = "SpatialDatasets/Ferguson_Images", 
-  RDataClass = "CytoImageList", 
+  RDataClass = "character", 
   SourceType = "TIFF", 
   stringsAsFactors = FALSE
 )
@@ -107,5 +107,5 @@ df_combined <- rbind(
   df_spe_Ali_2020
 )
 
-write.csv(df_combined, file = "metadata.csv", row.names = FALSE)
+write.csv(df_combined, file = "metadata_v2.csv", row.names = FALSE)
 
