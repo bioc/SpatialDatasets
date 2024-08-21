@@ -1,6 +1,6 @@
 ###############################################################
 # Script to process Schurch et al (2020) CODEX colorectcal cancer data
-# Ellis Patrick, updated Oct 2023
+# Alex Qin, updated Oct 2023
 ###############################################################
 
 # For more details on this dataset see:
@@ -14,17 +14,17 @@
 
 
 # Load in data
-codexData <- read_csv("/dskh/nobackup/biostat/datasets/spatial/CODEX_Colon_Schurch2020/Data/CRC_clusters_neighborhoods_markers.csv") %>%
+codexData <- readr::read_csv("/dskh/nobackup/biostat/datasets/spatial/CODEX_Colon_Schurch2020/Data/CRC_clusters_neighborhoods_markers.csv") %>%
   dplyr::select(-1)
 lev <- unique(codexData$ClusterName)
-codexData$cellType <- factor(codexData$ClusterName, levels = lev, labels = make_clean_names(lev))
+codexData$cellType <- factor(codexData$ClusterName, levels = lev, labels = janitor::make_clean_names(lev))
 
 # Creating marker matrix
 
 markerData <- codexData[, grepl("-", names(codexData))]
 
 colnames(markerData)[str_detect(colnames(markerData)," - ")] = colnames(markerData)[str_detect(colnames(markerData)," - ")] %>%
-  str_split(" - ") %>% lapply(function(x) x[[1]])        
+  stringr::str_split(" - ") %>% lapply(function(x) x[[1]])        
 
 markerData = markerData %>%   
   janitor::clean_names() %>%
@@ -58,7 +58,7 @@ phenoData <- left_join(imageMatch, phenoData, by = "patients")  %>%
 
 tissueType = phenoData %>% 
   select(imageID, cellID, la_4, la_6, diffuse_5, diffuse_7, subject = patient) %>%
-  mutate(regionNumber = as.numeric(str_sub(imageID, 6, 6))) %>% 
+  mutate(regionNumber = as.numeric(stringr::str_sub(imageID, 6, 6))) %>% 
   mutate(subSpot = ifelse(str_detect(imageID, "A"), 1, 2)) %>% 
   group_by(subject) %>% 
   mutate(regionOrder = ifelse(regionNumber == min(regionNumber), 1, 2)) %>% 

@@ -1,6 +1,6 @@
 ###############################################################
 # Script to process ALi et al (2020) METABRIC cohort breast cancer data
-# Ellis Patrick, updated Oct 2023
+# Alex Qin, updated Oct 2023
 ###############################################################
 
 # For more details on this dataset see:
