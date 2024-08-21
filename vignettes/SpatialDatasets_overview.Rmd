@@ -1,11 +1,6 @@
 ---
 title: "The SpatialDatasets package"
 author:
-- name: Shila Ghazanfar
-  affiliation:  
-  - Sydney Precision Data Science Centre, University of Sydney, Australia; 
-  - School of Mathematics and Statistics, University of Sydney, Australia; 
-  - Charles Perkins Centre, University of Sydney, Australia
 - name: Nicholas Robertson
   affiliation:
   - Sydney Precision Data Science Centre, University of Sydney, Australia; 
@@ -24,7 +19,7 @@ author:
   - Sydney Precision Data Science Centre, University of Sydney, Australia; 
   - School of Mathematics and Statistics, University of Sydney, Australia;
   - Westmead Institute for Medical Research, University of Sydney, Australia
-package: STexampleData
+package: SpatialDatasets
 output: 
   BiocStyle::html_document
 vignette: >
@@ -48,13 +43,9 @@ The `SpatialData` package contains a collection of spatially-resolved omics data
 To install the `SpatialDatasets` package from GitHub:
 
 ```{r, eval=FALSE}
-install.packages("remotes")
-remotes::install_github("SydneyBioX/SpatialDatasets", build_vignettes = TRUE)
-```
+if (!require("BiocManager", quietly = TRUE))
+    install.packages("BiocManager")
 
-To install the `SpatialDatasets` package from Bioconductor:
-
-```{r}
 BiocManager::install("SpatialDatasets")
 ```
 
