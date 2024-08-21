@@ -16,8 +16,14 @@
 library(SpatialExperiment)
 library(EBImage)
 library(dplyr)
+library(BiocParallel)
+library(tidyr)
+library(readr)
+library(tibble)
 
 
+
+nCores = 30
 ######
 # Load data
 ######
@@ -30,7 +36,7 @@ tiffs = list.files("images", full.names = TRUE)
 tiffnames = basename(tiffs) %>% parse_number()
 
 raw_images = bplapply(tiffs, EBImage::readImage,
-                      BPPARAM = MulticoreParam(workers = 30))
+                      BPPARAM = MulticoreParam(workers = nCores))
 names(raw_images) = tiffnames
 
 
@@ -52,7 +58,7 @@ convertTiff = function(image) {
 
 tiffdfs = bplapply(raw_images, 
                    convertTiff,
-                   BPPARAM = MulticoreParam(workers = 40))
+                   BPPARAM = MulticoreParam(workers = nCores))
 
 
 
@@ -106,12 +112,13 @@ spatialData = spatialData %>%
 # Creating patient labels: Factor 0 is mixed tumours, 1 = compartmentalised, 2 = cold
 
 #Patients with less than 250 immune cells (N = 6) were defined as cold. Patients with a mixing score < 0.22 (N = 15) were defined as compartmentalized and the rest of the patients (N = 20) were defined as mixed
-patientData$V2 %>% 
-  table() 
+# patientData$V2 %>% 
+#   table() 
+
 
 patientData = patientData %>% 
-  rename(V1 = "patient",
-         V2 = "tumour_type") %>%
+  rename("patient" = V1,
+         "tumour_type" = V2) %>%
   mutate(tumour_type = case_when(tumour_type == 0 ~ "mixed",
                                  tumour_type == 1 ~ "compartmentalised",
                                  tumour_type == 2 ~ "cold") %>% 
