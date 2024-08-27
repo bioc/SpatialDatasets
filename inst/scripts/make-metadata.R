@@ -19,19 +19,19 @@ df_all <- data.frame(
 
 # spe_Keren_2018
 
-df_spe_Keren_2018 <- cbind(
-  df_all, 
-  DispatchClass = "Rds", 
-  Title = "spe_Keren_2018", 
-  Description =  "A study on triple negative breast cancer containing samples measured using MIBI-TOF", 
-  SourceUrl = "https://www.angelolab.com/mibi-data", 
-  Species = "Homo sapiens", 
-  TaxonomyId = "9606", 
-  RDataPath = "SpatialDatasets/spe_Keren_2018.rds", 
-  RDataClass = "SpatialExperiment", 
-  SourceType = "TIFF", 
-  stringsAsFactors = FALSE
-)
+# df_spe_Keren_2018 <- cbind(
+#   df_all, 
+#   DispatchClass = "Rds", 
+#   Title = "spe_Keren_2018", 
+#   Description =  "A study on triple negative breast cancer containing samples measured using MIBI-TOF", 
+#   SourceUrl = "https://www.angelolab.com/mibi-data", 
+#   Species = "Homo sapiens", 
+#   TaxonomyId = "9606", 
+#   RDataPath = "SpatialDatasets/spe_Keren_2018.rds", 
+#   RDataClass = "SpatialExperiment", 
+#   SourceType = "TIFF", 
+#   stringsAsFactors = FALSE
+# )
 
 # Ferguson_Images
 
@@ -100,7 +100,7 @@ df_spe_Ali_2020 <- cbind(
 # combine and save as .csv spreadsheet file
 
 df_combined <- rbind(
-  df_spe_Keren_2018,
+  # df_spe_Keren_2018,
   df_Ferguson_Images,
   df_spe_Ferguson_2022,
   df_spe_Schurch_2020,
