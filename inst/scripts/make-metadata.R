@@ -65,6 +65,22 @@ df_spe_Ferguson_2022 <- cbind(
   stringsAsFactors = FALSE
 )
 
+# fergusonClinical
+
+df_fergusonClinical <- cbind(
+  df_all, 
+  DispatchClass = "rda",
+  Title = "fergusonClinical", 
+  Description =  "A study on head and neck cutaneous squamous cell carcinomas containing samples measured using IMC", 
+  SourceUrl = "https://ellispatrick.github.io/", 
+  Species = "Homo sapiens", 
+  TaxonomyId = "9606", 
+  RDataPath = "SpatialDatasets/fergusonClinical.rda", 
+  RDataClass = "data.frame", 
+  SourceType = "CSV", 
+  stringsAsFactors = FALSE
+)
+
 # spe_Schurch_2020
 
 df_spe_Schurch_2020 <- cbind(
@@ -103,6 +119,7 @@ df_combined <- rbind(
   # df_spe_Keren_2018,
   df_Ferguson_Images,
   df_spe_Ferguson_2022,
+  df_fergusonClinical,
   df_spe_Schurch_2020,
   df_spe_Ali_2020
 )
