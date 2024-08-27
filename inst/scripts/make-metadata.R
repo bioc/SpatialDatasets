@@ -43,7 +43,7 @@ df_Ferguson_Images <- cbind(
   SourceUrl = "https://ellispatrick.github.io/", 
   Species = "Homo sapiens", 
   TaxonomyId = "9606", 
-  RDataPath = "SpatialDatasets/Ferguson_Images", 
+  RDataPath = "SpatialDatasets/Ferguson_Images.zip", 
   RDataClass = "character", 
   SourceType = "TIFF", 
   stringsAsFactors = FALSE
@@ -59,7 +59,7 @@ df_spe_Ferguson_2022 <- cbind(
   SourceUrl = "https://ellispatrick.github.io/", 
   Species = "Homo sapiens", 
   TaxonomyId = "9606", 
-  RDataPath = "SpatialDatasets/spe_Ferguson_2022/spe_Ferguson_2022.rda", 
+  RDataPath = "SpatialDatasets/spe_Ferguson_2022.rda", 
   RDataClass = "SpatialExperiment", 
   SourceType = "TIFF", 
   stringsAsFactors = FALSE
@@ -75,7 +75,7 @@ df_spe_Schurch_2020 <- cbind(
   SourceUrl = "https://data.mendeley.com/public-files/datasets/mpjzbtfgfr/files/c24351b3-76d7-444f-9edf-0246356b0c78/file_downloaded", 
   Species = "Homo sapiens", 
   TaxonomyId = "9606", 
-  RDataPath = "SpatialDatasets/spe_Schurch_2020/spe_Schurch_2020.rds", 
+  RDataPath = "SpatialDatasets/spe_Schurch_2020.rds", 
   RDataClass = "SpatialExperiment", 
   SourceType = "TIFF", 
   stringsAsFactors = FALSE
@@ -91,7 +91,7 @@ df_spe_Ali_2020 <- cbind(
   SourceUrl = "https://idr.openmicroscopy.org/webclient/?show=project-1302", 
   Species = "Homo sapiens", 
   TaxonomyId = "9606", 
-  RDataPath = "SpatialDatasets/spe_Ali_2020/spe_Ali_2020.rds", 
+  RDataPath = "SpatialDatasets/spe_Ali_2020.rds", 
   RDataClass = "SpatialExperiment", 
   SourceType = "TIFF", 
   stringsAsFactors = FALSE
