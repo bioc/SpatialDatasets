@@ -53,7 +53,7 @@ df_Ferguson_Images <- cbind(
 
 df_spe_Ferguson_2022 <- cbind(
   df_all, 
-  DispatchClass = "rda",
+  DispatchClass = "Rda",
   Title = "spe_Ferguson_2022", 
   Description =  "A study on head and neck cutaneous squamous cell carcinomas containing samples measured using IMC", 
   SourceUrl = "https://ellispatrick.github.io/", 
@@ -69,7 +69,7 @@ df_spe_Ferguson_2022 <- cbind(
 
 df_fergusonClinical <- cbind(
   df_all, 
-  DispatchClass = "rda",
+  DispatchClass = "Rda",
   Title = "fergusonClinical", 
   Description =  "A study on head and neck cutaneous squamous cell carcinomas containing samples measured using IMC", 
   SourceUrl = "https://ellispatrick.github.io/", 
