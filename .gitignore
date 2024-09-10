@@ -4,6 +4,7 @@
 .Ruserdata
 .DS_Store
 *.Rproj
+*.html
 .vscode
 /doc/
 /Meta/

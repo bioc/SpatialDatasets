@@ -3,21 +3,21 @@ title: "The SpatialDatasets package"
 author:
 - name: Nicholas Robertson
   affiliation:
-  - Sydney Precision Data Science Centre, University of Sydney, Australia; 
+  - Sydney Precision Data Science Centre, University of Sydney, Australia
   - School of Mathematics and Statistics, University of Sydney, Australia
 - name: Farhan Ameen
   affiliation:
-  - Sydney Precision Data Science Centre, University of Sydney, Australia; 
+  - Sydney Precision Data Science Centre, University of Sydney, Australia
   - School of Mathematics and Statistics, University of Sydney, Australia
 - name: Alex Qin
   affiliation:
-  - Sydney Precision Data Science Centre, University of Sydney, Australia; 
-  - School of Mathematics and Statistics, University of Sydney, Australia;
+  - Sydney Precision Data Science Centre, University of Sydney, Australia
+  - School of Mathematics and Statistics, University of Sydney, Australia
   - Westmead Institute for Medical Research, University of Sydney, Australia
 - name: Ellis Patrick
   affiliation:
-  - Sydney Precision Data Science Centre, University of Sydney, Australia; 
-  - School of Mathematics and Statistics, University of Sydney, Australia;
+  - Sydney Precision Data Science Centre, University of Sydney, Australia
+  - School of Mathematics and Statistics, University of Sydney, Australia
   - Westmead Institute for Medical Research, University of Sydney, Australia
 package: SpatialDatasets
 output: 
@@ -57,6 +57,18 @@ The package contains the following datasets:
 - `spe_Keren_2018`: A study on triple negative breast cancer 
 containing 40 samples measured using MIBI-TOF published by [Keren et al. (2018)](https://doi.org/10.1016/j.cell.2018.08.039). 
 
+- `Ferguson_Images`: A study on head and neck cutaneous squamous 
+cell carcinoma containing 44 samples measured using IMC published by [Ferguson et al. (2022)](https://doi.org/10.1158/1078-0432.CCR-22-1332).
+
+- `spe_Ferguson_2022`: A study on head and neck cutaneous squamous 
+cell carcinoma containing 44 samples measured using IMC published by [Ferguson et al. (2022)](https://doi.org/10.1158/1078-0432.CCR-22-1332).
+
+- `spe_Schurch_2020`: A study on advanced colorectal cancer 
+containing 140 samples measured using CODEX published by [Schurch et al. (2020)](https://doi.org/10.1016/j.cell.2020.07.005). 
+
+- `spe_Ali_2020`: A study on breast cancer 
+containing 483 samples measured using IMC published by [Ali et al. (2020)](https://doi.org/10.1038/s43018-020-0026-6). 
+
 # Load data
 
 The following examples show how to load the example datasets as `SpatialExperiment` objects in an R session.
@@ -68,7 +80,7 @@ There are two options for loading the datasets: either using named accessor func
 
 ```{r, message=FALSE}
 library(SpatialExperiment)
-library(SpatialDatasets)
+devtools::load_all()
 ```
 
 
@@ -85,13 +97,75 @@ spe <- spe_Keren_2018()
 spe
 ```
 
+### Ferguson et al. (2022)
+
+A study on head and neck cutaneous squamous 
+cell carcinoma containing 44 samples measured using IMC published by [Ferguson et al. (2022)](https://doi.org/10.1158/1078-0432.CCR-22-1332).
+
+#### Ferguson Images
+
+In the chunk below, we've provided code for generating a `CytoImageList` object from the images `zip` file provided by the `Ferguson_Images()` function. 
+
+```{r, message=FALSE}
+# load object
+zip <- Ferguson_Images()
+tmp <- tempfile()
+unzip(zip, exdir = tmp)
+
+images <- cytomapper::loadImages(
+  tmp,
+  single_channel = TRUE,
+  on_disk = TRUE,
+  h5FilesPath = HDF5Array::getHDF5DumpDir()
+)
+
+# check object
+images
+```
+
+#### Ferguson SpatialExperiment Object
+
+```{r, message=FALSE}
+# load object
+spe <- spe_Ferguson_2022()
+
+# check object
+spe
+```
+
+### Schurch et al. (2020)
+
+A study on advanced colorectal cancer 
+containing 140 samples measured using CODEX published by [Schurch et al. (2020)](https://doi.org/10.1016/j.cell.2020.07.005). 
+
+```{r, message=FALSE}
+# load object
+spe <- spe_Schurch_2020()
+
+# check object
+spe
+```
+
+### Ali et al. (2020)
+
+A study on breast cancer 
+containing 483 samples measured using IMC published by [Ali et al. (2020)](https://doi.org/10.1038/s43018-020-0026-6). 
+
+```{r, message=FALSE}
+# load object
+spe <- spe_Ali_2020()
+
+# check object
+spe
+```
+
 
 
 # Generating objects from raw data files
 
 For reference, we include code scripts to generate the `SpatialExperiment`, `MoleculeExperiment` or `CytoImageList` objects from the raw data files.
 
-These scripts are saved in `/inst/scripts/` in the source code of the `SpatialData` package. The scripts include references and links to the data files from the original sources for each dataset.
+These scripts are saved in `/inst/scripts/` in the source code of the `SpatialDatasets` package. The scripts include references and links to the data files from the original sources for each dataset.
 
 
 # Session information
