@@ -71,7 +71,7 @@ There are two options for loading the datasets: either using named accessor func
 
 ```{r, message=FALSE}
 library(SpatialExperiment)
-devtools::load_all()
+library(SpatialDatasets)
 ```
 
 ### Keren et al. (2018)
