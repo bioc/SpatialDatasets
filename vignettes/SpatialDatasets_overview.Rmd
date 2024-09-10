@@ -32,11 +32,9 @@ vignette: >
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-
 # Introduction
 
-The `SpatialData` package contains a collection of spatially-resolved omics datasets, which have been formatted into the [SpatialExperiment](https://bioconductor.org/packages/SpatialExperiment), [MoleculeExperiment](https://bioconductor.org/packages/MoleculeExperiment) or [CytoImageList](https://bioconductor.org/packages/cytomapper) Bioconductor classes, for use in examples, demonstrations, and tutorials. The datasets are from several different platforms including IMC, MIBI-TOF, Xenium, CosMx and MERFISH. They have been sourced from various publicly available sources. 
-
+The `SpatialDatasets` package contains a collection of spatially-resolved omics datasets, which have been formatted into the [SpatialExperiment](https://bioconductor.org/packages/SpatialExperiment), [MoleculeExperiment](https://bioconductor.org/packages/MoleculeExperiment) or [CytoImageList](https://bioconductor.org/packages/cytomapper) Bioconductor classes, for use in examples, demonstrations, and tutorials. The datasets are from several different platforms including IMC, MIBI-TOF, Xenium, CosMx and MERFISH. They have been sourced from various publicly available sources.
 
 # Installation
 
@@ -49,32 +47,25 @@ if (!require("BiocManager", quietly = TRUE))
 BiocManager::install("SpatialDatasets")
 ```
 
-
 # Datasets
 
 The package contains the following datasets:
 
-- `spe_Keren_2018`: A study on triple negative breast cancer 
-containing 40 samples measured using MIBI-TOF published by [Keren et al. (2018)](https://doi.org/10.1016/j.cell.2018.08.039). 
+- `spe_Keren_2018`: A study on triple negative breast cancer containing 40 samples measured using MIBI-TOF published by [Keren et al. (2018)](https://doi.org/10.1016/j.cell.2018.08.039).
 
-- `Ferguson_Images`: A study on head and neck cutaneous squamous 
-cell carcinoma containing 44 samples measured using IMC published by [Ferguson et al. (2022)](https://doi.org/10.1158/1078-0432.CCR-22-1332).
+- `Ferguson_Images`: A study on head and neck cutaneous squamous cell carcinoma containing 44 samples measured using IMC published by [Ferguson et al. (2022)](https://doi.org/10.1158/1078-0432.CCR-22-1332).
 
-- `spe_Ferguson_2022`: A study on head and neck cutaneous squamous 
-cell carcinoma containing 44 samples measured using IMC published by [Ferguson et al. (2022)](https://doi.org/10.1158/1078-0432.CCR-22-1332).
+- `spe_Ferguson_2022`: A study on head and neck cutaneous squamous cell carcinoma containing 44 samples measured using IMC published by [Ferguson et al. (2022)](https://doi.org/10.1158/1078-0432.CCR-22-1332).
 
-- `spe_Schurch_2020`: A study on advanced colorectal cancer 
-containing 140 samples measured using CODEX published by [Schurch et al. (2020)](https://doi.org/10.1016/j.cell.2020.07.005). 
+- `spe_Schurch_2020`: A study on advanced colorectal cancer containing 140 samples measured using CODEX published by [Schurch et al. (2020)](https://doi.org/10.1016/j.cell.2020.07.005). 
 
-- `spe_Ali_2020`: A study on breast cancer 
-containing 483 samples measured using IMC published by [Ali et al. (2020)](https://doi.org/10.1038/s43018-020-0026-6). 
+- `spe_Ali_2020`: A study on breast cancer containing 483 samples measured using IMC published by [Ali et al. (2020)](https://doi.org/10.1038/s43018-020-0026-6). 
 
 # Load data
 
 The following examples show how to load the example datasets as `SpatialExperiment` objects in an R session.
 
 There are two options for loading the datasets: either using named accessor functions or by querying the ExperimentHub database.
-
 
 ## Load using named accessors
 
@@ -83,11 +74,9 @@ library(SpatialExperiment)
 devtools::load_all()
 ```
 
-
 ### Keren et al. (2018)
 
-A study on triple negative breast cancer 
-containing 40 samples measured using MIBI-TOF published by [Keren et al. (2018)](https://doi.org/10.1016/j.cell.2018.08.039). 
+A study on triple negative breast cancer containing 40 samples measured using MIBI-TOF published by [Keren et al. (2018)](https://doi.org/10.1016/j.cell.2018.08.039).
 
 ```{r, message=FALSE}
 # load object
@@ -99,8 +88,7 @@ spe
 
 ### Ferguson et al. (2022)
 
-A study on head and neck cutaneous squamous 
-cell carcinoma containing 44 samples measured using IMC published by [Ferguson et al. (2022)](https://doi.org/10.1158/1078-0432.CCR-22-1332).
+A study on head and neck cutaneous squamous cell carcinoma containing 44 samples measured using IMC published by [Ferguson et al. (2022)](https://doi.org/10.1158/1078-0432.CCR-22-1332).
 
 #### Ferguson Images
 
@@ -135,8 +123,7 @@ spe
 
 ### Schurch et al. (2020)
 
-A study on advanced colorectal cancer 
-containing 140 samples measured using CODEX published by [Schurch et al. (2020)](https://doi.org/10.1016/j.cell.2020.07.005). 
+A study on advanced colorectal cancer containing 140 samples measured using CODEX published by [Schurch et al. (2020)](https://doi.org/10.1016/j.cell.2020.07.005). 
 
 ```{r, message=FALSE}
 # load object
@@ -148,8 +135,7 @@ spe
 
 ### Ali et al. (2020)
 
-A study on breast cancer 
-containing 483 samples measured using IMC published by [Ali et al. (2020)](https://doi.org/10.1038/s43018-020-0026-6). 
+A study on breast cancer containing 483 samples measured using IMC published by [Ali et al. (2020)](https://doi.org/10.1038/s43018-020-0026-6). 
 
 ```{r, message=FALSE}
 # load object
@@ -167,10 +153,8 @@ For reference, we include code scripts to generate the `SpatialExperiment`, `Mol
 
 These scripts are saved in `/inst/scripts/` in the source code of the `SpatialDatasets` package. The scripts include references and links to the data files from the original sources for each dataset.
 
-
 # Session information
 
 ```{r}
 sessionInfo()
 ```
-
