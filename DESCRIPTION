@@ -1,5 +1,5 @@
 Package: SpatialDatasets
-Version: 1.4.0
+Version: 1.5.0
 Title: Collection of spatial omics datasets
 Description: This is a collection of publically available spatial omics datasets.
   Where possible we have curated these datasets as either SpatialExperiments, 
