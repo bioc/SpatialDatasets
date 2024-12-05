@@ -14,7 +14,7 @@
 
 
 # Load in data
-datasetFolder <- "/dski/nobackup/biostat/datasets/spatial/IMC_BreastCancer_metabric_Ali2020"
+datasetFolder <- "IMC_BreastCancer_metabric_Ali2020"
 IMC <- read.csv(file.path(datasetFolder, "Data", "single_cell_data.csv"))
 
 
@@ -30,12 +30,8 @@ rownames(clinical) <- clinical[, "METABRIC.ID"]
 # There is a small amount of missing data in the clinical table. 
 # Impute it using random forest. 
 
-set.seed(51773)
-library(missRanger)
-clinical <- missRanger(clinical, . - MATCHED.NORMAL.METABRIC.ID ~ . - METABRIC.ID - MATCHED.NORMAL.METABRIC.ID - Cohort - Date.Of.Diagnosis - Complete.Rec.History - metabricId)
-
 clinical <- clinical |>
-  select(-c("METABRIC.ID", "MATCHED.NORMAL.METABRIC.ID", "Cohort"))
+  dplyr::select(-c("METABRIC.ID", "MATCHED.NORMAL.METABRIC.ID", "Cohort"))
 
 # Subset to samples in common to RNA arrays, IMC and clinical data.
 commonIDs <- Reduce(intersect, list(clinical$metabricId, IMC$metabricId))
@@ -54,7 +50,7 @@ IMC <- IMC[IMC$ImageNumber %in% patientIDToImgID,]
 
 # Define marker matrix
 markerData <- IMC |>
-  select(-c("file_id", "metabricId", "core_id", "ImageNumber", "ObjectNumber",
+  dplyr::select(-c("file_id", "metabricId", "core_id", "ImageNumber", "ObjectNumber",
             "Location_Center_X", "Location_Center_Y", "SOM_nodes", "pg_cluster", 
             "description")) |>
   t() |>
@@ -64,7 +60,7 @@ colnames(markerData) = seq_len(ncol(markerData))
 
 # Define colData
 columnData <- IMC |>
-  select(c("file_id", "metabricId", "core_id", "ImageNumber", "ObjectNumber",
+  dplyr::select(c("file_id", "metabricId", "core_id", "ImageNumber", "ObjectNumber",
            "Location_Center_X", "Location_Center_Y", "SOM_nodes", "pg_cluster", 
            "description"))
 
@@ -73,16 +69,16 @@ rownames(columnData) = seq_len(nrow(columnData))
 
 # Incorporating patient characteristics
 columnData <- columnData |>
-  left_join(clinical, by = c("metabricId"))
+  dplyr::left_join(clinical, by = c("metabricId"))
 
 # Define spatial matrix
 spatialData <- columnData |>
-  select(c("Location_Center_X", "Location_Center_Y")) |>
+  dplyr::select(c("Location_Center_X", "Location_Center_Y")) |>
   as.matrix()
 
 
 # SingleCellExperiment
-spe_Ali_2020 = SpatialExperiment(
+spe_Ali_2020 = SpatialExperiment::SpatialExperiment(
   list(intensities = markerData),
   colData = columnData,
   spatialCoords = spatialData

@@ -14,7 +14,7 @@
 
 
 # Load in data
-codexData <- readr::read_csv("/dskh/nobackup/biostat/datasets/spatial/CODEX_Colon_Schurch2020/Data/CRC_clusters_neighborhoods_markers.csv") %>%
+codexData <- readr::read_csv("CODEX_Colon_Schurch2020/Data/CRC_clusters_neighborhoods_markers.csv") %>%
   dplyr::select(-1)
 lev <- unique(codexData$ClusterName)
 codexData$cellType <- factor(codexData$ClusterName, levels = lev, labels = janitor::make_clean_names(lev))
