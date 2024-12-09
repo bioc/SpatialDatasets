@@ -14,7 +14,7 @@
 
 
 # Load in data
-datasetFolder <- "/dski/nobackup/biostat/datasets/spatial/IMC_BreastCancer_metabric_Ali2020"
+datasetFolder <- "IMC_BreastCancer_metabric_Ali2020"
 IMC <- read.csv(file.path(datasetFolder, "Data", "single_cell_data.csv"))
 
 
