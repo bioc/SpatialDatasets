@@ -61,6 +61,11 @@ The package contains the following datasets:
 
 - `spe_Ali_2020`: A study on breast cancer containing 483 samples measured using IMC published by [Ali et al. (2020)](https://doi.org/10.1038/s43018-020-0026-6). 
 
+- `spe_Amancherla_2025`: A study on heart transplant rejection containing 35 samples measured with Xenium published by [Amancherla et al. (2025)](https://doi.org/10.1101/2025.02.28.640852)
+
+- `spe_Vannan_2025`: A study on pulmonary fibrosis containing 35 lung samples 
+measured with Xenium published by [Vannan et al. (2025)](https://doi.org/10.1038/s41588-025-02080-x).
+
 # Load data
 
 The following examples show how to load the example datasets as `SpatialExperiment` objects in an R session.
@@ -146,6 +151,29 @@ spe
 ```
 
 
+### Amancherla et al. (2025)
+
+A study on heart transplant rejection containing 62 (49 adult and 13 pediatric) samples measured with Xenium published by [Amancherla et al. (2025)](https://doi.org/10.1101/2025.02.28.640852). 
+
+```{r, message = FALSE}
+# load object
+spe <- spe_Amancherla_2025()
+
+# check object
+spe
+```
+
+### Vannan et al. (2025)
+
+A study on pulmonary fibrosis containing 35 lung samples measured with Xenium published by [Vannan et al. (2025)](https://doi.org/10.1038/s41588-025-02080-x).
+
+```{r, message = FALSE}
+# load object
+spe <- spe_Vannan_2025()
+
+# check object
+spe
+```
 
 # Generating objects from raw data files
 

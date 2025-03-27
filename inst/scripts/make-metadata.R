@@ -5,7 +5,7 @@
 # metadata for all datasets
 
 df_all <- data.frame(
-  BiocVersion = "3.18", 
+  BiocVersion = "3.21", 
   Genome = NA, 
   SourceVersion = NA, 
   Coordinate_1_based = NA, 
@@ -113,6 +113,38 @@ df_spe_Ali_2020 <- cbind(
   stringsAsFactors = FALSE
 )
 
+# spe_Amancherla_2025
+
+df_spe_Amancherla_2025 <- cbind(
+  df_all, 
+  DispatchClass = "Rds", 
+  Title = "spe_Amancherla_2025", 
+  Description =  "A study on heart transplant rejection containing 62 samples measured with Xenium", 
+  SourceUrl = "https://www.ncbi.nlm.nih.gov/bioproject/PRJNA1228649", 
+  Species = "Homo sapiens", 
+  TaxonomyId = "9606", 
+  RDataPath = "SpatialDatasets/spe_Amancherla_2025.rds", 
+  RDataClass = "SpatialExperiment", 
+  SourceType = "TIFF", 
+  stringsAsFactors = FALSE
+)
+
+# spe_Vannan_2025
+
+df_spe_Vannan_2025 <- cbind(
+  df_all, 
+  DispatchClass = "Rds", 
+  Title = "spe_Vannan_2025", 
+  Description =  "A study on pulomary fibrosis containing 35 lung samples obtained through Xenium", 
+  SourceUrl = "https://www.ncbi.nlm.nih.gov/bioproject/PRJNA1056041", 
+  Species = "Homo sapiens", 
+  TaxonomyId = "9606", 
+  RDataPath = "SpatialDatasets/spe_Vannan_2025.rds", 
+  RDataClass = "SpatialExperiment", 
+  SourceType = "TIFF", 
+  stringsAsFactors = FALSE
+)
+
 # combine and save as .csv spreadsheet file
 
 df_combined <- rbind(
@@ -121,8 +153,10 @@ df_combined <- rbind(
   df_spe_Ferguson_2022,
   df_fergusonClinical,
   df_spe_Schurch_2020,
-  df_spe_Ali_2020
+  df_spe_Ali_2020,
+  df_spe_Amancherla_2025,
+  df_spe_Vannan_2025
 )
 
-write.csv(df_combined, file = "metadata_v2.csv", row.names = FALSE)
+write.csv(df_combined, file = "../extdata/metadata_v3.csv", row.names = FALSE)
 

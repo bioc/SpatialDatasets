@@ -4,7 +4,9 @@
 .onLoad <- function(libname, pkgname) {
   fl1 <- system.file("extdata", "metadata.csv", package=pkgname)
   fl2 <- system.file("extdata", "metadata_v2.csv", package=pkgname)
+  fl3 <- system.file("extdata", "metadata_v3.csv", package=pkgname)
   titles <- c(read.csv(fl1, stringsAsFactors=FALSE)$Title,
-              read.csv(fl2, stringsAsFactors=FALSE)$Title)
+              read.csv(fl2, stringsAsFactors=FALSE)$Title,
+              read.csv(fl3, stringsAsFactors = FALSE)$Title)
   createHubAccessors(pkgname, titles)
 }

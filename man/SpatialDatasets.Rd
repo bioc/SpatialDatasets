@@ -41,7 +41,13 @@ cell carcinoma containing 44 samples measured using IMC published by [Ferguson e
 containing 140 samples measured using CODEX published by [Schurch et al. (2020)](https://doi.org/10.1016/j.cell.2020.07.005). 
 
 \item spe_Ali_2020 (IMC): A study on breast cancer 
-containing 483 samples measured using IMC published by [Ali et al. (2020)](https://doi.org/10.1038/s43018-020-0026-6). 
+containing 483 samples measured using IMC published by [Ali et al. (2020)](https://doi.org/10.1038/s43018-020-0026-6).
+
+\item spe_Amancherla_2025 (Xenium): A study on heart transplant rejection containing 62 (49 adult and 13 pediatric) samples measured with Xenium 
+published by [Amancherla et al. (2025)](https://doi.org/10.1101/2025.02.28.640852).
+
+\item spe_Vannan_2025 (Xenium): A study on pulmonary fibrosis containing 35 lung samples 
+measured with Xenium published by [Vannan et al. (2025)](https://doi.org/10.1038/s41588-025-02080-x).
 }
 \value{
 The datasets will be a SpatialExperiment or MoleculeExperiment.
