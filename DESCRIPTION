@@ -38,6 +38,6 @@ VignetteBuilder: knitr
 Suggests:
     BiocStyle, 
     knitr, 
-    rmarkdown
+    rmarkdown,
     cytomapper
 RoxygenNote: 7.3.2
